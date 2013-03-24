@@ -140,9 +140,9 @@ return array(
 	    // copyright holder
         'copyrightHolder' => 'Daniele Ricci',
 	    // bloglooks website
-        'poweredByUrl' => 'http://www.casaricci.it/gitweb/?p=bloglooks.git',
+        'poweredByUrl' => 'https://gitorious.org/bloglooks/',
 	    // git revision url
-        'revisionUrl' => 'http://www.casaricci.it/gitweb/?p=bloglooks.git;a=commit;h=%s',
+        'revisionUrl' => 'https://gitorious.org/bloglooks/mainline/commit/%s',
         // markdown reference url
         'markdownUrl' => 'http://daringfireball.net/projects/markdown/syntax',
 	),

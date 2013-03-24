@@ -1,0 +1,9 @@
+/** Main responsive stylesheet */
+
+@media (max-width: 979px) {
+	body {
+	  padding-top: 20px;
+	}
+}
+
+/* TODO remove outer border stuff when on phone screen */

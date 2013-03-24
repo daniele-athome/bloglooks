@@ -1,0 +1,49 @@
+/* ---------- plus pics -----------*/
+
+.pluspics-container {
+}
+
+.pluspics-container .pluspics {
+	width: auto;
+}
+
+.pluspics-container .pluspics li {
+	list-style: none;
+}
+
+.pluspics-container .pluspics li {
+	position: relative;
+	float: left;
+	width: 188px;
+	height: 125px;
+}
+
+.pluspics-container .pluspics li a span {
+	position: absolute;
+	display:block;
+	overflow: hidden;
+	width: 188px;
+	height: 125px;
+	padding: 6px;
+	background-color: #fff;
+}
+
+.pluspics-container .pluspics li a {
+	display:block;
+}
+
+.pluspics-container .pluspics li a:hover span.hover {
+	padding: 5px;
+	border: solid 1px #CCC;
+	-moz-box-shadow: 1px 1px 5px #999;
+	-webkit-box-shadow: 1px 1px 5px #999;
+    box-shadow: 1px 1px 5px #999;
+}
+
+.pluspics-container .pluspics li img {
+	position: absolute;
+	top:50%;
+  	left:50%;
+  	display: none;
+  	padding: 2px;
+}

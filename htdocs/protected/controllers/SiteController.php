@@ -71,14 +71,19 @@ class SiteController extends Controller
 		$this->redirect(Yii::app()->homeUrl);
 	}
 
-	public function actionLanguage($id)
+	public function actionLanguage($id, $goto=null)
 	{
 	    // store language in a cookie
 	    self::setUserLanguage($id);
 
-	    $url = Yii::app()->request->urlReferrer;
+	    $url = false;
+	    // WARNING allowing any URL
+	    if ($goto) $url = $goto;
+	    // use referrer
+	    if (!$url) $url = Yii::app()->request->urlReferrer;
 	    // use home url if no referrer is found
 	    if (!$url) $url = Yii::app()->homeUrl;
+
 	    $this->redirect($url);
 	}
 }

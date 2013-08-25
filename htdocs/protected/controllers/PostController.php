@@ -331,24 +331,19 @@ class PostController extends Controller
 	 */
 	protected function newComment($post)
 	{
-	    // comments from guests are not allowed (yet)
-	    if (Yii::app()->user->isGuest)
-	        return false;
-
 	    $comment=new Comment;
-	    if(isset($_POST['ajax']) && $_POST['ajax']==='comment-form')
-	    {
-	        echo CActiveForm::validate($comment);
-	        Yii::app()->end();
-	    }
 	    if(isset($_POST['Comment']))
 	    {
+	        $comment->scenario = 'resetPasswordWithCaptcha';
 	        $comment->attributes=$_POST['Comment'];
-	        if($post->addComment($comment))
-	        {
-	            if($comment->status==Comment::STATUS_PENDING)
-	                Yii::app()->user->setFlash('commentSubmitted', Yii::t('Post', '<strong>Thanks!</strong> Your comment will be posted once it is approved.'));
-	            $this->refresh();
+
+	        if ($comment->validate()) {
+    	        if($post->addComment($comment, false))
+    	        {
+    	            if($comment->status==Comment::STATUS_PENDING)
+    	                Yii::app()->user->setFlash('commentSubmitted', Yii::t('Post', '<strong>Thanks!</strong> Your comment will be posted once it is approved.'));
+    	            $this->refresh();
+    	        }
 	        }
 	    }
 	    return $comment;

@@ -74,13 +74,11 @@ else {
 			'comments'=>$model->comments,
 		)); ?>
 
-		<?php if (!Yii::app()->user->isGuest): ?>
 		<div class="form-comment well">
 		<?php $this->renderPartial('/comment/_form',array(
 		    'model'=>$comment,
 		    'legend'=>Yii::t('Post', 'Leave a comment'),
 		)); ?>
 		</div>
-		<?php endif; ?>
 
 </div><!-- comments -->

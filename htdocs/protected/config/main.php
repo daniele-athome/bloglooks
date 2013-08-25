@@ -145,5 +145,10 @@ return array(
         'revisionUrl' => 'https://gitorious.org/bloglooks/mainline/commit/%s',
         // markdown reference url
         'markdownUrl' => 'http://daringfireball.net/projects/markdown/syntax',
+        // recaptcha keys
+        'recaptcha' => array(
+            'publicKey' => 'PUBLIC-KEY',
+            'privateKey' => 'PRIVATE-KEY',
+	    ),
 	),
 );

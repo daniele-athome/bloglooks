@@ -6,6 +6,8 @@ return array(
     'Name' => 'Nome',
     'Role' => 'Ruolo',
 
+    'Email' => 'E-mail',
+
     'Create user' => 'Nuovo utente',
     'Delete this user?' => 'Cancellare l\'utente?',
 );

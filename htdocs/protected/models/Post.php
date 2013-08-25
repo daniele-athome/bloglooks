@@ -188,12 +188,12 @@ class Post extends CActiveRecord
 	 * @param Comment the comment to be added
 	 * @return boolean whether the comment is saved successfully
 	 */
-	public function addComment($comment)
+	public function addComment($comment, $validate=true)
 	{
 	    $comment->status=Configuration::get('comment_initial_status', Comment::STATUS_APPROVED);
 	    $comment->post_id=$this->id;
 	    $comment->post_language=$this->language;
-	    return $comment->save();
+	    return $comment->save($validate);
 	}
 
 }

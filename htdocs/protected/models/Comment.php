@@ -17,6 +17,8 @@ class Comment extends CActiveRecord
     const STATUS_PENDING='P';
     const STATUS_APPROVED='A';
 
+    public $captcha;
+
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.
@@ -42,14 +44,27 @@ class Comment extends CActiveRecord
 	{
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
-		return array(
+
+		$rules = array(
 			array('content', 'required'),
 			array('post_id, author_id', 'numerical', 'integerOnly'=>true),
 			array('status', 'length', 'max'=>1),
+		    array('anon_name', 'length', 'max' => 50),
+		    array('anon_email', 'length', 'max' => 100),
+		    array('captcha', 'application.extensions.recaptcha.EReCaptchaValidator',
+		        'privateKey' => Yii::app()->params['recaptcha']['privateKey'],
+		        'on' => 'resetPasswordWithCaptcha'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('id, post_id, content, status, timestamp, author_id', 'safe', 'on'=>'search'),
 		);
+
+		if (Yii::app()->user->isGuest) {
+		    $rules[] = array('anon_name', 'required');
+		    $rules[] = array('anon_email', 'required');
+		}
+
+		return $rules;
 	}
 
 	/**
@@ -77,6 +92,8 @@ class Comment extends CActiveRecord
 			'status' => 'Status',
 			'timestamp' => 'Timestamp',
 			'author_id' => 'Author',
+		    'anon_name' => 'Name',
+		    'anon_email' => 'Email',
 		);
 	}
 

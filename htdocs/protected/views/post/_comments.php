@@ -8,7 +8,9 @@
 
 	<div class="page-header-small">
 		<?php echo Yii::t('Post', '{user} says:',
-		    array('{user}' => CHtml::link($comment->author->name, array('user/view', 'id' => $comment->author->id)))); ?>
+		    array('{user}' => $comment->author ?
+                CHtml::link($comment->author->name, array('user/view', 'id' => $comment->author->id)) :
+		        $comment->anon_name)); ?>
 	</div>
 
 	<div class="muted">

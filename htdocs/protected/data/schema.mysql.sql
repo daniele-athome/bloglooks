@@ -1,13 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 3.4.11.1deb1
+-- version 4.0.5deb1
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generato il: Gen 09, 2013 alle 14:43
--- Versione del server: 5.5.28
--- Versione PHP: 5.4.4-10
+-- Generation Time: Aug 25, 2013 at 02:31 PM
+-- Server version: 5.5.31-1
+-- PHP Version: 5.5.1-2
 
-SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 
@@ -23,7 +23,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `attachments`
+-- Table structure for table `attachments`
 --
 
 CREATE TABLE `attachments` (
@@ -34,12 +34,12 @@ CREATE TABLE `attachments` (
   `mime` varchar(100) CHARACTER SET ascii DEFAULT NULL COMMENT 'MIME type',
   `path` varchar(255) CHARACTER SET utf8 NOT NULL COMMENT 'Full path',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Posts attachments';
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Posts attachments';
 
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `comments`
+-- Table structure for table `comments`
 --
 
 CREATE TABLE `comments` (
@@ -49,7 +49,9 @@ CREATE TABLE `comments` (
   `content` text COLLATE utf8_unicode_ci NOT NULL COMMENT 'Content',
   `status` enum('P','A') CHARACTER SET ascii NOT NULL DEFAULT 'P' COMMENT 'Approval status',
   `timestamp` datetime NOT NULL COMMENT 'Timestamp',
-  `author_id` int(11) NOT NULL COMMENT 'Author ID',
+  `author_id` int(11) DEFAULT NULL COMMENT 'Author ID',
+  `anon_name` varchar(50) CHARACTER SET utf8 DEFAULT NULL COMMENT 'Unregistered user name',
+  `anon_email` varchar(100) CHARACTER SET ascii DEFAULT NULL COMMENT 'Unregistered user email',
   PRIMARY KEY (`id`),
   KEY `post` (`post_id`,`post_language`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='Comments';
@@ -57,7 +59,7 @@ CREATE TABLE `comments` (
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `configuration`
+-- Table structure for table `configuration`
 --
 
 CREATE TABLE `configuration` (
@@ -71,7 +73,7 @@ CREATE TABLE `configuration` (
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `pages`
+-- Table structure for table `pages`
 --
 
 CREATE TABLE `pages` (
@@ -91,7 +93,7 @@ CREATE TABLE `pages` (
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `posts`
+-- Table structure for table `posts`
 --
 
 CREATE TABLE `posts` (
@@ -112,7 +114,7 @@ CREATE TABLE `posts` (
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `users`
+-- Table structure for table `users`
 --
 
 CREATE TABLE `users` (

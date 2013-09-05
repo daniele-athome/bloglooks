@@ -158,4 +158,20 @@ class Comment extends CActiveRecord
 	    else
 	        return false;
 	}
+
+	public function notifyAdmins() {
+	    // send comment notification e-mail to admins
+	    $admins = User::model()->findAllByAttributes(array('role' => 'admin'));
+	    $to = array();
+	    foreach ($admins as $adm)
+	        $to[$adm->login] = $adm->name;
+
+	    $mail = new YiiMailer('comment', array('comment' => $this));
+	    $mail->setFrom(Yii::app()->params['adminEmail']);
+	    $mail->setTo($to);
+	    $mail->setSubject(Yii::t("Post", "New comment to post #{id}: {title}",
+	        array('{id}' => $this->post_id, '{title}' => $this->post->title)));
+
+	    return $mail->send();
+	}
 }

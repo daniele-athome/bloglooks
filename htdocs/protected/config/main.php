@@ -18,6 +18,7 @@ return array(
 		'application.components.*',
 	    'application.web.auth.*',
 	    'application.web.helpers.*',
+	    'ext.YiiMailer.YiiMailer',
 	),
 
 	'modules'=>array(

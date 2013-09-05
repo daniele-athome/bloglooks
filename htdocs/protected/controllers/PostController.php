@@ -340,6 +340,9 @@ class PostController extends Controller
 	        if ($comment->validate()) {
     	        if($post->addComment($comment, false))
     	        {
+    	            // send comment notification e-mail to admins
+    	            $comment->notifyAdmins();
+
     	            if($comment->status==Comment::STATUS_PENDING)
     	                Yii::app()->user->setFlash('commentSubmitted', Yii::t('Post', '<strong>Thanks!</strong> Your comment will be posted once it is approved.'));
     	            $this->refresh();

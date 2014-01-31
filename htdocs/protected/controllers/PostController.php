@@ -167,8 +167,9 @@ class PostController extends Controller
 	{
 	    $model = $this->loadModel($id, $language, true);
 
-	    // controllare se il post e' stata pubblicato prima di visualizzarla
-	    if (!$model->published and $model->author->id != Yii::app()->user->getId() and Yii::app()->user->checkAccess('admin'))
+	    // allow access to unpublished posts only to the author or to admins/editors
+	    if (!$model->published and $model->author->id != Yii::app()->user->getId()
+	           and !Yii::app()->user->checkAccess('admin') and !Yii::app()->user->checkAccess('editor'))
 	        throw new CHttpException(404, 'The requested page does not exist.');
 
 	    $comment=$this->newComment($model);

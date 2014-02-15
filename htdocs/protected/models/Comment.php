@@ -10,6 +10,7 @@
  * @property string $status
  * @property string $timestamp
  * @property integer $author_id
+ * @property integer $reply_to
  */
 class Comment extends CActiveRecord
 {
@@ -47,7 +48,7 @@ class Comment extends CActiveRecord
 
 		$rules = array(
 			array('content', 'required'),
-			array('post_id, author_id', 'numerical', 'integerOnly'=>true),
+			array('post_id, author_id, reply_to', 'numerical', 'integerOnly'=>true),
 			array('status', 'length', 'max'=>1),
 		    array('anon_name', 'length', 'max' => 50),
 		    array('anon_email', 'length', 'max' => 100),
@@ -77,6 +78,7 @@ class Comment extends CActiveRecord
 		return array(
 		    'post' => array(self::BELONGS_TO, 'Post', 'post_id, post_language'),
 		    'author' => array(self::BELONGS_TO, 'User', 'author_id'),
+			'follow_up' => array(self::BELONGS_TO, 'Comment', 'reply_to'),
 		);
 	}
 
@@ -94,6 +96,7 @@ class Comment extends CActiveRecord
 			'author_id' => 'Author',
 		    'anon_name' => 'Name',
 		    'anon_email' => 'Email',
+			'reply_to' => 'Reply to',
 		);
 	}
 

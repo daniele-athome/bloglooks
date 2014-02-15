@@ -7,10 +7,19 @@
 	)); ?>
 
 	<div class="page-header-small">
-		<?php echo Yii::t('Post', '{user} says:',
-		    array('{user}' => $comment->author ?
+		<?php
+		$userlink = $comment->author ?
                 CHtml::link($comment->author->name, array('user/view', 'id' => $comment->author->id)) :
-		        $comment->anon_name)); ?>
+		        $comment->anon_name;
+
+		if ($comment->follow_up)
+			echo Yii::t('Post', '{user} replies to <a href="{reply}">comment</a>:',
+				array('{user}' => $userlink,
+					  '{reply}' => $comment->follow_up->getUrl($post)));
+		else
+			echo Yii::t('Post', '{user} says:',
+					array('{user}' => $userlink));
+		?>
 	</div>
 
 	<div class="muted">
@@ -20,6 +29,10 @@
 	<div class="content">
 		<?php echo nl2br(CHtml::encode($comment->content)); ?>
 	</div>
+
+	<small class="nav muted post-footer">
+	<?php echo CHtml::link(Yii::t('Post', 'Reply'), '#comment-form', array('onclick' => 'replyComment('.$comment->id.'); return false;')); ?>
+	</small>
 
 </div><!-- comment -->
 <?php endforeach; ?>

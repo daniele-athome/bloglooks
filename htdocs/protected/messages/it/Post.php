@@ -17,6 +17,8 @@ return array(
     'Comments ({n})' => 'Commenti ({n})',
     'Attachments ({n})' => 'Allegati ({n})',
     '{user} says:' => '{user} dice:',
+    '{user} replies to <a href="{reply}">comment</a>:' =>
+    '{user} risponde al <a href="{reply}">commento</a>:',
     '&larr; Newer' => '&larr; Nuovi',
     'Older &rarr;' => 'Vecchi &rarr;',
 
@@ -37,6 +39,7 @@ return array(
     'No comments.' => 'Nessun commento.',
     '{n} comment|{n} comments' => '{n} commento|{n} commenti',
     'Leave a comment' => 'Lascia un commento',
+    'Reply' => 'Rispondi',
     '<strong>Thanks!</strong> Your comment will be posted once it is approved.' =>
     '<strong>Grazie!</strong> Il commento sar&agrave; pubblicato dopo l\'approvazione.',
 

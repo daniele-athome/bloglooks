@@ -11,6 +11,21 @@ else {
     $stamp = $model->modified;
 }
 
+Yii::app()->clientScript->registerScript('replyComment', <<<EOF
+function replyComment(id) {
+    // set hidden field
+    $('#comment_reply_to').val(id);
+
+    // TODO quote original comment
+    // TODO var quote = ...
+    // TODO $('#comment_text').val(quote);
+
+    // go to comment form
+    location.href = '#comment-form';
+}
+EOF
+, CClientScript::POS_END);
+
 ?>
 
 <?php if (Yii::app()->user->hasFlash('commentSubmitted')): ?>

@@ -4,8 +4,11 @@ $form=$this->beginWidget('CActiveForm', array(
     'enableClientValidation'=>false,
     'htmlOptions' => array('class' => 'form-comment'),
 ));
+?>
 
-if (isset($legend)): ?>
+<a name="comment-form"></a>
+
+<?php if (isset($legend)): ?>
 <legend><?php echo $legend ?></legend>
 <?php endif; ?>
 
@@ -18,7 +21,8 @@ if (isset($legend)): ?>
 
 <?php endif; ?>
 
-<?php echo $form->textArea($model,'content',array('rows'=>10, 'cols'=>80, 'class' => 'span12')); ?>
+<?php echo $form->hiddenField($model, 'reply_to', array('id' => 'comment_reply_to')); ?>
+<?php echo $form->textArea($model,'content',array('rows'=>10, 'cols'=>80, 'class' => 'span12', 'id' => 'comment_text')); ?>
 
 <?php $this->widget('application.extensions.recaptcha.EReCaptcha',
    array('model'=>$model, 'attribute'=>'captcha',

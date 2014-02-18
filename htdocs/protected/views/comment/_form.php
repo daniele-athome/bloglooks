@@ -24,9 +24,46 @@ $form=$this->beginWidget('CActiveForm', array(
 <?php echo $form->hiddenField($model, 'reply_to', array('id' => 'comment_reply_to')); ?>
 <?php echo $form->textArea($model,'content',array('rows'=>10, 'cols'=>80, 'class' => 'span12', 'id' => 'comment_text')); ?>
 
+<div class="row-fluid">
+<div id="recaptcha_form" class="span12 recaptcha_form" style="display: none">
+
+    <div id="recaptcha_image" class="recaptcha_image"></div>
+
+    <div class="recaptcha_input">
+        <input type="text" class="span12" id="recaptcha_response_field" name="recaptcha_response_field">
+    </div>
+
+    <ul class="recaptcha_options">
+        <li>
+        <a href="javascript:Recaptcha.reload()">
+        <i class="icon-refresh"></i>
+        <span class="captcha_hide">Get another CAPTCHA</span>
+        </a>
+        </li>
+        <li class="recaptcha_only_if_image">
+        <a href="javascript:Recaptcha.switch_type('audio')">
+        <i class="icon-volume-up"></i><span class="captcha_hide"> Get an audio CAPTCHA</span>
+        </a>
+        </li>
+        <li class="recaptcha_only_if_audio">
+        <a href="javascript:Recaptcha.switch_type('image')">
+        <i class="icon-picture"></i><span class="captcha_hide"> Get an image CAPTCHA</span>
+        </a>
+        </li>
+        <li>
+        <a href="javascript:Recaptcha.showhelp()">
+        <i class="icon-question-sign"></i><span class="captcha_hide"> Help</span>
+        </a>
+        </li>
+    </ul>
+
+</div>
+</div>
+
 <?php $this->widget('application.extensions.recaptcha.EReCaptcha',
    array('model'=>$model, 'attribute'=>'captcha',
-         'theme'=>'clean', 'language'=>$this->language,
+         'theme'=>'custom', 'language'=>$this->language,
+         'customThemeWidget' => 'recaptcha_form',
          'publicKey'=>Yii::app()->params['recaptcha']['publicKey'])) ?>
 <?php echo CHtml::error($model, 'captcha', array('class' => 'alert alert-error')); ?>
 

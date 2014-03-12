@@ -107,6 +107,7 @@ class Comment extends CActiveRecord
 	{
 	    $this->status=self::STATUS_APPROVED;
 	    $this->update(array('status'));
+	    $this->notifyUsers();
 	}
 
 	/**
@@ -114,11 +115,11 @@ class Comment extends CActiveRecord
 	 * will query for the post.
 	 * @return string the permalink URL for this comment
 	 */
-	public function getUrl($post=null)
+	public function getUrl($post=null, $absolute=false)
 	{
 	    if($post===null)
 	        $post=$this->post;
-	    return $post->url.'#c'.$this->id;
+	    return $post->getUrl($absolute).'#c'.$this->id;
 	}
 
 	/**
@@ -162,7 +163,8 @@ class Comment extends CActiveRecord
 	        return false;
 	}
 
-	public function notifyAdmins() {
+	public function notifyAdmins()
+	{
 	    // send comment notification e-mail to admins
 	    $admins = User::model()->findAllByAttributes(array('role' => 'admin'));
 	    $to = array();
@@ -177,4 +179,38 @@ class Comment extends CActiveRecord
 
 	    return $mail->send();
 	}
+
+	/**
+	 * Sends e-mail notifications to all users that have posted a comment to
+	 * this post.
+	 */
+	public function notifyUsers()
+	{
+	    $users = array();
+	    foreach ($this->post->comments as $comment) {
+	        $to = false;
+
+	        if ($comment->author) {
+	            if ($comment->author->role != 'admin')
+	                $to = $comment->author->role->login;
+	        }
+	        else {
+	            $to = $comment->anon_email;
+	        }
+
+	        if (!in_array($to, $users))
+	            $users[] = $to;
+	    }
+
+	    foreach ($users as $to) {
+	        $mail = new YiiMailer('comment', array('comment' => $this));
+	        $mail->setFrom(Yii::app()->params['adminEmail']);
+	        $mail->setTo($to);
+	        $mail->setSubject(Yii::t("Post", "New comment to post: {title}",
+	                array('{title}' => $this->post->title)));
+
+	        return $mail->send();
+	    }
+	}
+
 }

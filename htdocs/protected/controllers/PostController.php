@@ -344,11 +344,13 @@ class PostController extends Controller
     	            // send comment notification e-mail to admins
     	            $comment->notifyAdmins();
 
-    	            // TODO send notification to subscribers
-    	            // ...
-
     	            if($comment->status==Comment::STATUS_PENDING)
     	                Yii::app()->user->setFlash('commentSubmitted', Yii::t('Post', '<strong>Thanks!</strong> Your comment will be posted once it is approved.'));
+
+    	            // comment already approved - send notification to all users involved
+    	            else
+    	                $comment->notifyUsers();
+
     	            $this->refresh();
     	        }
 	        }

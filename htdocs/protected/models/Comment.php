@@ -198,7 +198,7 @@ class Comment extends CActiveRecord
 	            $to = $comment->anon_email;
 	        }
 
-	        if (!in_array($to, $users))
+	        if ($to and !in_array($to, $users))
 	            $users[] = $to;
 	    }
 

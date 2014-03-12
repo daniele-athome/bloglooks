@@ -168,8 +168,11 @@ class Comment extends CActiveRecord
 	    // send comment notification e-mail to admins
 	    $admins = User::model()->findAllByAttributes(array('role' => 'admin'));
 	    $to = array();
-	    foreach ($admins as $adm)
-	        $to[$adm->login] = $adm->name;
+	    foreach ($admins as $adm) {
+	        // do not send email to the author
+	        if ($adm->id != $this->author->id)
+    	        $to[$adm->login] = $adm->name;
+	    }
 
 	    $mail = new YiiMailer('comment', array('comment' => $this));
 	    $mail->setFrom(Yii::app()->params['adminEmail']);
@@ -192,7 +195,7 @@ class Comment extends CActiveRecord
 
 	        if ($comment->author) {
 	            if ($comment->author->role != 'admin')
-	                $to = $comment->author->role->login;
+	                $to = $comment->author->login;
 	        }
 	        else {
 	            $to = $comment->anon_email;

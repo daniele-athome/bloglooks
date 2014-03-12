@@ -141,9 +141,9 @@ return array(
 	    // copyright holder
         'copyrightHolder' => 'Daniele Ricci',
 	    // bloglooks website
-        'poweredByUrl' => 'https://gitorious.org/bloglooks/',
+        'poweredByUrl' => 'https://github.com/daniele-athome/bloglooks',
 	    // git revision url
-        'revisionUrl' => 'https://gitorious.org/bloglooks/mainline/commit/%s',
+        'revisionUrl' => 'https://github.com/daniele-athome/bloglooks/commit/%s',
         // markdown reference url
         'markdownUrl' => 'http://daringfireball.net/projects/markdown/syntax',
         // recaptcha keys

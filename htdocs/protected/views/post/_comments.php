@@ -9,7 +9,7 @@
 	<div class="page-header-small">
 		<?php
 		$userlink = $comment->author ?
-                CHtml::link($comment->author->name, array('user/view', 'id' => $comment->author->id)) :
+		        CHtml::link($comment->author->name, array('post/index', 'author' => $comment->author->id)) :
 		        $comment->anon_name;
 
 		if ($comment->follow_up)

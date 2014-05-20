@@ -169,8 +169,8 @@ class Comment extends CActiveRecord
 	    $admins = User::model()->findAllByAttributes(array('role' => 'admin'));
 	    $to = array();
 	    foreach ($admins as $adm) {
-	        // do not send email to the author
-	        if ($adm->id != $this->author->id)
+	        // do not send email to the author (if any)
+	        if (!$this->author or $adm->id != $this->author->id)
     	        $to[$adm->login] = $adm->name;
 	    }
 

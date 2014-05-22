@@ -72,11 +72,15 @@ EOF
   })();
 </script>
 
+<?php
+if ($model->comments_enabled):
+?>
+
 <div id="comments">
 		<div class="page-title">
 		    <span class="muted">
 		    <?php
-		    if (!$model->commentCount)
+            if (!$model->commentCount)
 		        echo Yii::t('Post', 'No comments.');
 		    else
 		        echo Yii::t('Post', '{n} comment|{n} comments', array($model->commentCount));
@@ -97,3 +101,5 @@ EOF
 		</div>
 
 </div><!-- comments -->
+
+<?php endif; ?>

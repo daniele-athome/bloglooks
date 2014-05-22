@@ -13,6 +13,7 @@
  * @property string $modified
  * @property string $published
  * @property string $content
+ * @property boolean $comments_enabled
  */
 class Post extends CActiveRecord
 {
@@ -85,6 +86,7 @@ class Post extends CActiveRecord
 			'modified' => 'Modified',
 			'published' => Yii::t('Post', 'Published'),
 			'content' => 'Content',
+		    'comments_enabled' => 'Comments enabled',
 		);
 	}
 
@@ -122,6 +124,7 @@ class Post extends CActiveRecord
 		$criteria->compare('modified',$this->modified,true);
 		$criteria->compare('published',$this->published,true);
 		$criteria->compare('content',$this->content,true);
+		$criteria->compare('comments_enabled',$this->comments_enabled,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

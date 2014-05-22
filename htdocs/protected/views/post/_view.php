@@ -113,9 +113,11 @@ EOF
 		<?php echo CHtml::link(Yii::t('Post', 'Permalink'), $data->getUrl(true)); ?> |
 
         <?php if (!isset($standalone)): ?>
-        <?php echo CHtml::link(Yii::t('Post', 'Comments ({n})', array('{n}' => $data->commentCount)), $data->url .'#comments'); ?> |
-        <?php if ($data->attachmentCount > 0): ?>
-        <?php echo CHtml::link(Yii::t('Post', 'Attachments ({n})', array('{n}' => $data->attachmentCount)), $data->url .'#attachments'); ?> |
+            <?php if ($data->comments_enabled): ?>
+            <?php echo CHtml::link(Yii::t('Post', 'Comments ({n})', array('{n}' => $data->commentCount)), $data->url .'#comments'); ?> |
+            <?php if ($data->attachmentCount > 0): ?>
+            <?php echo CHtml::link(Yii::t('Post', 'Attachments ({n})', array('{n}' => $data->attachmentCount)), $data->url .'#attachments'); ?> |
+            <?php endif; ?>
         <?php endif; ?>
 
         <?php elseif (Yii::app()->user->checkAccess('editor') || Yii::app()->user->checkAccess('admin')): ?>

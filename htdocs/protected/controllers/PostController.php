@@ -172,7 +172,7 @@ class PostController extends Controller
 	           and !Yii::app()->user->checkAccess('admin') and !Yii::app()->user->checkAccess('editor'))
 	        throw new CHttpException(404, 'The requested page does not exist.');
 
-	    $comment=$this->newComment($model);
+	    $comment = ($model->comments_enabled) ? $this->newComment($model) : null;
 	    $this->render('view',array(
 			'model'=>$model,
 		    'comment'=>$comment,

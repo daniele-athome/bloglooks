@@ -106,6 +106,7 @@ CREATE TABLE `posts` (
   `modified` datetime NOT NULL COMMENT 'Last modified timestamp',
   `published` datetime DEFAULT NULL COMMENT 'Publish timestamp',
   `content` longtext COLLATE utf8_unicode_ci NOT NULL COMMENT 'Content',
+  `comments_enabled` tinyint(1) NOT NULL DEFAULT '1' COMMENT 'Comments enabled flag',
   PRIMARY KEY (`id`,`language`),
   KEY `author_id` (`author_id`),
   FULLTEXT KEY `content` (`content`)

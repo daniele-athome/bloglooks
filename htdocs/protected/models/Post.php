@@ -102,8 +102,12 @@ class Post extends CActiveRecord
 	    }
 	    if ($language)
 	        $params['language'] = $language;
-	    return ($absolute ? Yii::app()->getBaseUrl(true) : '') . Yii::app()->createUrl('post/view', $params);
-	}
+
+	    if ($absolute)
+	        return Yii::app()->createAbsoluteUrl('post/view', $params);
+	    else
+	        return Yii::app()->createUrl('post/view', $params);
+    }
 
 	/**
 	 * Retrieves a list of models based on the current search/filter conditions.

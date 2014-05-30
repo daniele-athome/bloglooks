@@ -20,7 +20,7 @@ else {
     </h2>
     </div>
 
-    <small class="muted">
+    <small class="text-muted">
     <?php echo $status; ?> <?php echo $stamp; ?> <?php echo Yii::t('app', 'by'); ?> <?php echo CHtml::link($data->author->name, array('post/index', 'author' => $data->author->id)); ?>
     </small>
 
@@ -74,7 +74,7 @@ EOF
     <?php if (isset($standalone) and $standalone and $data->attachmentCount > 0): ?>
     <div id="attachments">
 		<div class="attachments-title">
-		    <span class="muted">
+		    <span class="text-muted">
             <?php echo CHtml::image(Yii::app()->baseUrl . '/images/attach.png', '', array('style' => 'width: 18px; height: 18px')); ?>
 		    <?php echo Yii::t('Post', '{n} attachment|{n} attachments', array($data->attachmentCount)); ?>
 		    </span>
@@ -83,7 +83,7 @@ EOF
 		<?php foreach ($data->attachments as $att): ?>
 		<li>
 		    <?php echo CHtml::link($att->filename, array('attachment/download', 'id' => $att->id)); ?>
-		    <small class="muted"><?php echo Yii::app()->format->formatSize($att->size); ?></small>
+		    <small class="text-muted"><?php echo Yii::app()->format->formatSize($att->size); ?></small>
 		</li>
 		<?php endforeach; ?>
 		</ul>
@@ -109,7 +109,7 @@ EOF
     </small>
     <?php endif; ?>
 
-    <small class="nav muted post-footer">
+    <small class="nav text-muted post-footer">
 		<?php echo CHtml::link(Yii::t('Post', 'Permalink'), $data->getUrl(true)); ?> |
 
         <?php if (!isset($standalone)): ?>

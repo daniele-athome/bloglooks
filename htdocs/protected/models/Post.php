@@ -152,7 +152,7 @@ class Post extends CActiveRecord
 	/**
 	 * @return array a list of links that point to the post list filtered by every tag of this post
 	 */
-	public function getTagLinks($class='label label-info')
+	public function getTagLinks($class='label label-primary')
 	{
 	    $links=array();
 	    foreach(Tag::string2array($this->tags) as $tag)

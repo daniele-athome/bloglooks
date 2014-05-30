@@ -111,7 +111,7 @@ return array(
 	            // register this for everything needed to the app
 	            'core' => array(
 	                'baseUrl' => '',
-	                'css' => array('css/main.css', 'css/main-responsive.css'),
+	                'css' => array('css/main.css'),
 	                'depends' => array('jquery', 'bootstrap'),
 	            ),
 	            'jquery' => array(
@@ -121,7 +121,7 @@ return array(
 	            'bootstrap' => array(
 	                'baseUrl' => '',
 	                'js' => array('js/bootstrap.min.js'),
-	                'css' => array('css/bootstrap.min.css', 'css/bootstrap-responsive.min.css'),
+	                'css' => array('css/bootstrap.min.css', 'css/navlist.css'),
 	            ),
 	            'pluspics' => array(
 	                'baseUrl' => '',

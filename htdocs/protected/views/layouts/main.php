@@ -1,5 +1,5 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $this->language; ?>" lang="<?php echo $this->language; ?>">
+<!DOCTYPE html>
+<html lang="<?php echo $this->language; ?>">
 <head>
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -39,9 +39,9 @@ Yii::app()->clientScript->registerCoreScript('core');
 
 <body>
 
-<div class="container-narrow">
+<div class="container-narrow container">
 
-   <div class="container-inner" id="header">
+   <header class="container-inner row" id="header">
         <div class="masthead">
         <?php
         $items = array(array('label'=>Yii::t('app', 'Home'), 'url'=>array('post/index')));
@@ -59,13 +59,11 @@ Yii::app()->clientScript->registerCoreScript('core');
         ?>
 
         <h3 id="blogname"><?php echo CHtml::link(CHtml::encode($this->config['blog_name']), array('post/index'), array('encode' => true)); ?></h3>
-        <h6 id="blogdesc" class="muted"><?php echo CHtml::encode($this->config['blog_description']); ?></h6>
+        <h6 id="blogdesc" class="text-muted"><?php echo CHtml::encode($this->config['blog_description']); ?></h6>
         </div>
-    </div>
+    </header>
 
-    <hr/>
-
-    <div class="container-inner" id="content">
+    <div id="content">
 
     <!-- TODO breadcrumbs -->
 
@@ -73,8 +71,8 @@ Yii::app()->clientScript->registerCoreScript('core');
 
     </div>
 
-    <div class="footer page-footer">
-        <div class="container-fluid pagination-centered muted credit">
+    <footer class="footer page-footer row">
+        <div class="container-fluid text-center text-muted credit">
         Powered by <a target="_blank" href="<?php echo Yii::app()->params['poweredByUrl']; ?>"><?php echo Yii::app()->name; ?></a> |
         Copyright &copy; <?php echo Yii::app()->params['copyrightHolder']; ?><br/>
         <?php if ($this->availableLanguages):
@@ -92,7 +90,7 @@ Yii::app()->clientScript->registerCoreScript('core');
         <small>git revision: <?php echo $this->revisionUrl; ?></small><br/>
         <small><?php echo Yii::t('app', 'Page generated in {seconds} seconds', array('{seconds}' => round(Yii::getLogger()->getExecutionTime(), 3))); ?></small>
         </div>
-    </div>
+    </footer>
 
 </div>
 

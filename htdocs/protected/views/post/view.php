@@ -38,7 +38,7 @@ EOF
 <?php $this->renderPartial('_view', array('data' => $model, 'standalone' => true)); ?>
 
 <div class="page-title">
-    <span class="muted"><?php echo Yii::t('Post', 'Share this post'); ?></span>
+    <span class="text-muted"><?php echo Yii::t('Post', 'Share this post'); ?></span>
 </div>
 
 <!-- Twitter -->
@@ -78,7 +78,7 @@ if ($model->comments_enabled):
 
 <div id="comments">
 		<div class="page-title">
-		    <span class="muted">
+		    <span class="text-muted">
 		    <?php
             if (!$model->commentCount)
 		        echo Yii::t('Post', 'No comments.');

@@ -5,6 +5,10 @@ body {
     padding-top: 10px;
 }
 
+h1, h2, h3, h4, h5 {
+    font-weight: bold;
+}
+
 /* Custom container */
 .container-narrow {
   background-color: #fffffc;
@@ -46,6 +50,7 @@ body {
 #content {
     background-color: #fffffc;
     padding-bottom: 14px;
+    padding-top: 14px;
 }
 
 .page-footer {
@@ -83,7 +88,7 @@ body {
 }
 
 .form-signin {
-  max-width: 300px;
+  max-width: 340px;
   padding: 19px 29px 29px;
   margin: 0 auto 20px;
   background-color: #fff;
@@ -97,7 +102,10 @@ body {
 }
 .form-signin .form-signin-heading,
 .form-signin .checkbox {
-  margin-bottom: 10px;
+  /*margin-bottom: 10px;*/
+}
+.form-signin label.checkbox {
+  padding-left: 0;
 }
 .form-signin input[type="text"],
 .form-signin input[type="password"] {
@@ -144,6 +152,7 @@ body {
     font-size:1.5em;
     font-weight:bold;
     padding:0 5px 5px 5px;
+    margin-top: -5px;
     text-decoration: none;
 }
 
@@ -165,8 +174,7 @@ div.form-comment > form.form-comment {
 }
 
 .post-footer {
-    margin: 0;
-    display: block;
+	margin-bottom: 2px;
 }
 
 .small {

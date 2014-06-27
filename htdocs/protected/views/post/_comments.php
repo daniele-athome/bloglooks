@@ -22,7 +22,7 @@
 		?>
 	</div>
 
-	<div class="muted">
+	<div class="text-muted">
 		<small><?php echo $comment->timestamp; ?></small>
 	</div>
 
@@ -30,7 +30,7 @@
 		<?php echo nl2br(CHtml::encode($comment->content)); ?>
 	</div>
 
-	<small class="nav muted post-footer">
+	<small class="nav text-muted post-footer">
 	<?php echo CHtml::link(Yii::t('Post', 'Reply'), '#comment-form', array('onclick' => 'replyComment('.$comment->id.'); return false;')); ?>
 	</small>
 

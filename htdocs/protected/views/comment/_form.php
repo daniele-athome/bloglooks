@@ -14,23 +14,29 @@ $form=$this->beginWidget('CActiveForm', array(
 
 <?php if (Yii::app()->user->isGuest): ?>
 
-<?php echo $form->textField($model,'anon_name',array('class'=>'span12','maxlength'=>50, 'placeholder' => Yii::t('User', 'Name'))); ?>
+<div class="form-group">
+<?php echo $form->textField($model,'anon_name',array('class'=>'form-control','maxlength'=>50, 'placeholder' => Yii::t('User', 'Name'))); ?>
 <?php echo $form->error($model,'anon_name',array('class' => 'alert alert-error')); ?>
-<?php echo $form->textField($model,'anon_email',array('class'=>'span12','maxlength'=>100, 'placeholder' => Yii::t('User', 'Email'))); ?>
+</div>
+
+<div class="form-group">
+<?php echo $form->textField($model,'anon_email',array('class'=>'form-control','maxlength'=>100, 'placeholder' => Yii::t('User', 'Email'))); ?>
 <?php echo $form->error($model,'anon_email',array('class' => 'alert alert-error')); ?>
+</div>
 
 <?php endif; ?>
 
 <?php echo $form->hiddenField($model, 'reply_to', array('id' => 'comment_reply_to')); ?>
-<?php echo $form->textArea($model,'content',array('rows'=>10, 'cols'=>80, 'class' => 'span12', 'id' => 'comment_text')); ?>
+<?php echo $form->textArea($model,'content',array('rows'=>10, 'cols'=>80, 'class' => 'col-md-12 form-control', 'id' => 'comment_text')); ?>
 
-<div class="row-fluid">
-<div id="recaptcha_form" class="span12 recaptcha_form" style="display: none">
+<div class="container-fluid">
+<div class="row">
+<div id="recaptcha_form" class="col-md-12 recaptcha_form" style="display: none">
 
     <div id="recaptcha_image" class="recaptcha_image"></div>
 
     <div class="recaptcha_input">
-        <input type="text" class="span12" id="recaptcha_response_field" name="recaptcha_response_field">
+        <input type="text" class="col-md-12 form-control" id="recaptcha_response_field" name="recaptcha_response_field">
     </div>
 
     <ul class="recaptcha_options">
@@ -57,6 +63,7 @@ $form=$this->beginWidget('CActiveForm', array(
         </li>
     </ul>
 
+</div>
 </div>
 </div>
 

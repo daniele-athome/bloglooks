@@ -1,7 +1,7 @@
 <?php $this->beginContent('//layouts/main'); ?>
 
 <div class="row">
-    <div class="span12">
+    <div class="col-md-12">
     <?php echo $content; ?>
     </div>
 </div>

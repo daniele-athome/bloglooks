@@ -91,9 +91,9 @@ EOF
     <?php endif; ?>
 
     <?php if ($data->tags): ?>
-    <small class="nav post-footer">
-    <b>Tags:</b> <?php echo implode(' ', $data->tagLinks); ?>
-    </small>
+    <div class="nav post-footer">
+    <small><strong>Tags:</strong></small> <?php echo implode(' ', $data->tagLinks); ?>
+    </div>
     <?php endif; ?>
 
     <?php if ($data->languages and count($data->languages) > 1): ?>

@@ -16,13 +16,13 @@
     <?php if ($model->isNewRecord): ?>
     <div class="form-group">
     <?php echo $form->textField($model,'name',array('class'=>'form-control','maxlength'=>100, 'placeholder' => Yii::t('Page', 'Name'))); ?>
-    <?php echo $form->error($model,'name',array('class' => 'alert alert-error')); ?>
+    <?php echo $form->error($model,'name',array('class' => 'alert alert-danger')); ?>
     </div>
     <?php endif; ?>
 
     <div class="form-group">
     <?php echo $form->textField($model,'title',array('class'=>'form-control','maxlength'=>200, 'placeholder' => Yii::t('Page', 'Title'))); ?>
-    <?php echo $form->error($model,'title',array('class' => 'alert alert-error')); ?>
+    <?php echo $form->error($model,'title',array('class' => 'alert alert-danger')); ?>
     </div>
 
     <div class="checkbox">

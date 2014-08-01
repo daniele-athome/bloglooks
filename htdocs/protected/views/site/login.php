@@ -11,12 +11,12 @@ $form=$this->beginWidget('CActiveForm', array(
 
     <div class="form-group">
     <?php echo $form->textField($model,'username',array('placeholder' => Yii::t('app', 'Email'), 'class' => 'form-control')); ?>
-    <?php echo $form->error($model,'username', array('class' => 'alert alert-error')); ?>
+    <?php echo $form->error($model,'username', array('class' => 'alert alert-danger')); ?>
     </div>
 
     <div class="form-group">
     <?php echo $form->passwordField($model,'password',array('placeholder' => Yii::t('app', 'Password'), 'class' => 'form-control')); ?>
-    <?php echo $form->error($model,'password', array('class' => 'alert alert-error')); ?>
+    <?php echo $form->error($model,'password', array('class' => 'alert alert-danger')); ?>
     </div>
 
     <div class="checkbox">

@@ -115,6 +115,12 @@ h1, h2, h3, h4, h5 {
   padding: 7px 9px;
 }
 
+.form-group .alert {
+	padding: 10px;
+    margin-bottom: 0;
+    margin-top: 10px;
+}
+
 .page-title {
   margin: 10px 0 15px;
   border-bottom: 1px solid #eeeeee;

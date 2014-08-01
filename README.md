@@ -13,9 +13,10 @@ Features
  * Tags to posts
  * Standalone pages
  * Multilanguage
- * Comments with approval by admin
+ * Comments with approval by admin (no UI yet)
  * Privilege roles: user, editor, admin
  * Mail notifications
  * ATOM/RSS feeds
  * Google+ Photos integration
  * Share buttons: Google+, Facebook, Twitter
+ * [recaptcha](http://www.google.com/recaptcha/) on comments

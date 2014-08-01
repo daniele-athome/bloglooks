@@ -19,4 +19,4 @@ Features
  * ATOM/RSS feeds
  * Google+ Photos integration
  * Share buttons: Google+, Facebook, Twitter
- * [recaptcha](http://www.google.com/recaptcha/) on comments
+ * [reCAPTCHA](http://www.google.com/recaptcha/) on comments

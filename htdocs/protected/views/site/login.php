@@ -1,6 +1,10 @@
 <?php
 $this->pageTitle=Yii::t('app', 'Login');
+?>
 
+<div class="form-signin">
+
+<?php
 $form=$this->beginWidget('CActiveForm', array(
 	'id'=>'login-form',
 	'enableClientValidation'=>false,
@@ -24,5 +28,8 @@ $form=$this->beginWidget('CActiveForm', array(
       <?php echo $form->checkBox($model, 'rememberMe', array('id' => 'rememberMe')); ?> <?php echo Yii::t('app', 'Remember me'); ?>
     </label>
     </div>
+
     <?php echo CHtml::submitButton(Yii::t('app', 'Login'), array('class' => 'btn btn-lg btn-primary')); ?>
 <?php $this->endWidget(); ?>
+
+</div>

@@ -65,7 +65,7 @@ EOF
         }
     }
 
-    $this->beginWidget('CMarkdown', array('purifyOutput'=>true));
+    $this->beginWidget('CMarkdown');
     echo $data->content;
     $this->endWidget();
     ?>

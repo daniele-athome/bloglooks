@@ -5,7 +5,7 @@ $this->pageTitle = Yii::t('app', 'Users');
 ?>
 
 <legend><?php echo Yii::t('app', 'Users'); ?>&nbsp;<?php
- echo CHtml::link(Yii::t('User', 'Create user'), array('user/create'), array('class' => 'btn btn-small pull-right btn-new')); ?>
+ echo CHtml::link(Yii::t('User', 'Create user'), array('user/create'), array('class' => 'btn btn-default btn-sm pull-right')); ?>
 </legend>
 
 <?php $this->widget('zii.widgets.grid.CGridView', array(

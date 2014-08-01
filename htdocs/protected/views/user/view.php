@@ -26,13 +26,13 @@
 
 <?php
 if (Yii::app()->user->id == $model->id || Yii::app()->user->checkAccess('admin')) {
-    echo CHtml::link(Yii::t('app', 'Edit'), array('user/update', 'id' => $model->id), array('class' => 'btn btn-large btn-primary'));
+    echo CHtml::link(Yii::t('app', 'Edit'), array('user/update', 'id' => $model->id), array('class' => 'btn btn-lg btn-primary'));
 }
 ?>
 
 <?php
 if (Yii::app()->user->checkAccess('admin')) {
-    echo CHtml::link(Yii::t('app', 'Delete'), array('user/delete', 'id' => $model->id), array('class' => 'btn btn-large btn-danger',
+    echo CHtml::link(Yii::t('app', 'Delete'), array('user/delete', 'id' => $model->id), array('class' => 'btn btn-lg btn-danger',
         'submit' => array('user/delete', 'id' => $model->id),
         'confirm' => Yii::t('User', 'Delete this user?')));
 }

@@ -2,7 +2,7 @@
 $this->pageTitle = Yii::t('app', 'Posts');
 ?>
 <legend><?php echo Yii::t('app', 'Posts'); ?>&nbsp;<?php
- echo CHtml::link(Yii::t('Post', 'New post'), array('post/new'), array('class' => 'btn btn-small pull-right btn-new')); ?>
+ echo CHtml::link(Yii::t('Post', 'New post'), array('post/new'), array('class' => 'btn btn-default btn-sm pull-right')); ?>
 </legend>
 
 <?php $this->widget('zii.widgets.grid.CGridView', array(

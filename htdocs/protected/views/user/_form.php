@@ -4,11 +4,10 @@
 /* @var $form CActiveForm */
 ?>
 
-<div class="form">
-
 <?php $form=$this->beginWidget('CActiveForm', array(
 	'id'=>'user-form',
 	'enableAjaxValidation'=>false,
+    'htmlOptions' => array('role' => 'form'),
 )); ?>
 
 <fieldset>
@@ -20,44 +19,47 @@
     <?php endif; ?>
     </legend>
 
-    <div class="span10">
-
-    <div class="input-prepend">
-        <span class="add-on">@</span>
-        <?php echo $form->textField($model,'login',array('maxlength'=>140,'class'=>'span12','placeholder' => Yii::t('User', 'Login'))); ?>
+    <div class="form-group">
+    <div class="input-group">
+        <span class="input-group-addon">@</span>
+        <?php echo $form->textField($model,'login',array('maxlength'=>140,'class'=>'form-control','placeholder' => Yii::t('User', 'Login'))); ?>
     </div>
-	<?php echo $form->error($model,'login', array('class' => 'alert alert-error')); ?>
+	<?php echo $form->error($model,'login', array('class' => 'alert alert-danger')); ?>
+	</div>
 
-    <div class="input-prepend">
-        <span class="add-on"><i class="icon-lock"></i></span>
-	    <?php echo $form->passwordField($model,'password',array('value'=>'','maxlength'=>40,'class'=>'span12','placeholder' => Yii::t('User', 'Password'))); ?>
+    <div class="form-group">
+    <div class="input-group">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+	    <?php echo $form->passwordField($model,'password',array('value'=>'','maxlength'=>40,'class'=>'form-control','placeholder' => Yii::t('User', 'Password'))); ?>
     </div>
-	<?php echo $form->error($model,'password', array('class' => 'alert alert-error')); ?>
-
-    <div class="input-prepend">
-        <span class="add-on"><i class="icon-user"></i></span>
-	    <?php echo $form->textField($model,'name',array('maxlength'=>255,'class'=>'span12','placeholder' => Yii::t('User', 'Name'))); ?>
+	<?php echo $form->error($model,'password', array('class' => 'alert alert-danger')); ?>
 	</div>
-	<?php echo $form->error($model,'name', array('class' => 'alert alert-error')); ?>
 
-    <div class="input-prepend">
-        <span class="add-on"><i class="icon-flag"></i></span>
-	    <?php echo $form->textField($model,'role',array('maxlength'=>20,'class'=>'span12','placeholder' => Yii::t('User', 'Role'))); ?>
+    <div class="form-group">
+    <div class="input-group">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+	    <?php echo $form->textField($model,'name',array('maxlength'=>255,'class'=>'form-control','placeholder' => Yii::t('User', 'Name'))); ?>
 	</div>
-	<?php echo $form->error($model,'role', array('class' => 'alert alert-error')); ?>
+	<?php echo $form->error($model,'name', array('class' => 'alert alert-danger')); ?>
+	</div>
+
+    <div class="form-group">
+    <div class="input-group">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-flag"></i></span>
+	    <?php echo $form->textField($model,'role',array('maxlength'=>20,'class'=>'form-control','placeholder' => Yii::t('User', 'Role'))); ?>
+	</div>
+	<?php echo $form->error($model,'role', array('class' => 'alert alert-danger')); ?>
+	</div>
 
 	<div>
-	<?php echo CHtml::submitButton(Yii::t('app', $model->isNewRecord ? 'Create' : 'Save'), array('class' => 'btn btn-primary btn-large')); ?>
+	<?php echo CHtml::submitButton(Yii::t('app', $model->isNewRecord ? 'Create' : 'Save'), array('class' => 'btn btn-primary btn-lg')); ?>
 	<?php if (!$model->isNewRecord): ?>
-    <?php echo CHtml::link(Yii::t('app', 'Delete'), array('user/delete', 'id' => $model->id), array('class' => 'btn btn-large btn-danger',
+    <?php echo CHtml::link(Yii::t('app', 'Delete'), array('user/delete', 'id' => $model->id), array('class' => 'btn btn-lg btn-danger',
         'submit' => array('user/delete', 'id' => $model->id),
         'confirm' => Yii::t('Page', 'Delete this user?'))); ?>
 	<?php endif; ?>
 	</div>
 
-	</div>
 </fieldset>
 
 <?php $this->endWidget(); ?>
-
-</div><!-- form -->

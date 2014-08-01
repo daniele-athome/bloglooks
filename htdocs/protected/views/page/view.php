@@ -23,7 +23,7 @@ else {
 
 <div class="page-content">
 <?php
-$this->beginWidget('CMarkdown', array('purifyOutput'=>true));
+$this->beginWidget('CMarkdown');
 echo $model->content;
 $this->endWidget();
 ?>

@@ -40,7 +40,10 @@
 
 	<?php echo CHtml::submitButton(Yii::t('app', $model->isNewRecord ? 'Create' : 'Save'), array('class' => 'btn btn-primary btn-lg')); ?>
 	<?php if (!$model->isNewRecord): ?>
-    <?php echo CHtml::link(Yii::t('app', 'Delete'), array('post/delete', 'id' => $model->id, 'language' => $model->language), array('class' => 'btn btn-lg btn-danger', 'confirm' => Yii::t('Post', 'Delete {lang} version of this post?', array('{lang}' => $model->language)))); ?>
+    <?php echo CHtml::link(Yii::t('app', 'Delete'), array('post/delete', 'id' => $model->id, 'language' => $model->language), array(
+            'class' => 'btn btn-lg btn-danger',
+            'submit'=> array('post/delete', 'id' => $model->id, 'language' => $model->language),
+            'confirm' => Yii::t('Post', 'Delete {lang} version of this post?', array('{lang}' => $model->language)))); ?>
 	<?php endif; ?>
 
 </fieldset>

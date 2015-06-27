@@ -113,7 +113,7 @@ EOF
 		<?php echo CHtml::link(Yii::t('Post', 'Permalink'), $data->getUrl(true)); ?> |
 
         <?php if (!isset($standalone)): ?>
-            <?php if ($data->comments_enabled): ?>
+            <?php if ($data->comments_enabled && !$comments_disabled): ?>
             <?php echo CHtml::link(Yii::t('Post', 'Comments ({n})', array('{n}' => $data->commentCount)), $data->url .'#comments'); ?> |
             <?php if ($data->attachmentCount > 0): ?>
             <?php echo CHtml::link(Yii::t('Post', 'Attachments ({n})', array('{n}' => $data->attachmentCount)), $data->url .'#attachments'); ?> |

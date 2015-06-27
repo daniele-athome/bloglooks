@@ -64,6 +64,7 @@ class PostController extends Controller
 	        'dataProvider'=>$dataProvider,
 	        'tag' => $tag,
 	        'author' => User::model()->findByPk($author),
+            'comments_disabled' => Configuration::isCommentsDisabled(),
 	    ));
 	}
 
@@ -160,6 +161,7 @@ class PostController extends Controller
 	        'dataProvider'=>$dataProvider,
 	        'year' => $year,
 	        'month' => $month,
+            'comments_disabled' => Configuration::isCommentsDisabled(),
 	    ));
 	}
 
@@ -172,10 +174,13 @@ class PostController extends Controller
 	           and !Yii::app()->user->checkAccess('admin') and !Yii::app()->user->checkAccess('editor'))
 	        throw new CHttpException(404, 'The requested page does not exist.');
 
-	    $comment = ($model->comments_enabled) ? $this->newComment($model) : null;
+        $comments_disabled = Configuration::isCommentsDisabled();
+
+	    $comment = ($model->comments_enabled && !$comments_disabled) ? $this->newComment($model) : null;
 	    $this->render('view',array(
 			'model'=>$model,
 		    'comment'=>$comment,
+            'comments_disabled'=>$comments_disabled,
 		));
 	}
 

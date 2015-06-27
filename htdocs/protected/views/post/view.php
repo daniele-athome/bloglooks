@@ -11,7 +11,8 @@ else {
     $stamp = $model->modified;
 }
 
-Yii::app()->clientScript->registerScript('replyComment', <<<EOF
+if (!$comments_disabled) {
+    Yii::app()->clientScript->registerScript('replyComment', <<<EOF
 function replyComment(id) {
     // set hidden field
     $('#comment_reply_to').val(id);
@@ -24,7 +25,8 @@ function replyComment(id) {
     location.href = '#comment-form';
 }
 EOF
-, CClientScript::POS_END);
+    , CClientScript::POS_END);
+}
 
 ?>
 
@@ -73,7 +75,7 @@ EOF
 </script>
 
 <?php
-if ($model->comments_enabled):
+if ($model->comments_enabled && !$comments_disabled):
 ?>
 
 <div id="comments">

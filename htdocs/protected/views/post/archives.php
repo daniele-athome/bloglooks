@@ -8,4 +8,4 @@ $month = Yii::app()->locale->dateFormatter->format(Yii::t('Post', 'MMMM yyyy'), 
 </div>
 <?php
 
-echo $this->renderPartial('_list', array('dataProvider'=>$dataProvider));
+echo $this->renderPartial('_list', array('dataProvider'=>$dataProvider, 'comments_disabled' => $comments_disabled));

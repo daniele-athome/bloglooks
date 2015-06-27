@@ -17,4 +17,7 @@
         'hideFirstPageButton' => true,
         'hideLastPageButton' => true,
     ),
+    'viewData' => array(
+        'comments_disabled' => $comments_disabled,
+    ),
 ));

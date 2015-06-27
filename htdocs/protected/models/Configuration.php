@@ -52,4 +52,18 @@ class Configuration extends CActiveRecord
 	{
 	    return array_key_exists($name, self::$cache) ? self::$cache[$name] : $default;
 	}
+
+    public static function getBoolean($name, $default=false)
+    {
+        // not using get() because we need a special behaviour here
+        if (array_key_exists($name, self::$cache))
+            return self::$cache[$name] ? true : false;
+        else
+            return $default;
+    }
+
+    public static function isCommentsDisabled()
+    {
+        return self::getBoolean('comments_disabled');
+    }
 }

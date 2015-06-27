@@ -17,4 +17,4 @@ if ($author):
 <?php
 endif;
 
-echo $this->renderPartial('_list', array('dataProvider'=>$dataProvider));
+echo $this->renderPartial('_list', array('dataProvider'=>$dataProvider, 'comments_disabled' => $comments_disabled));

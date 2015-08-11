@@ -8,6 +8,7 @@
 <meta name="title" content="<?php echo $this->config['blog_name']; ?>"/>
 <meta name="description" content="<?php echo $this->config['blog_description']; ?>"/>
 <meta name="keywords" content="<?php echo $this->config['blog_keywords']; ?>"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
 
 <link rel="shortcut icon" type="image/x-icon" href="<?php echo Yii::app()->request->baseUrl; ?>/favicon.ico" />
 <link rel="alternate" type="application/rss+xml" href="<?php echo $this->createUrl('post/feed', array('type' => 'rss', 'language' => $this->language)); ?>" />
@@ -35,6 +36,11 @@ Yii::app()->clientScript->registerCoreScript('core');
 ?>
 
 <title><?php echo CHtml::encode($this->pageTitle . ' - ' . $this->config['blog_name']); ?></title>
+
+<!--[if lt IE 9]>
+<script src="<?php echo Yii::app()->baseUrl; ?>/js/html5shiv.min.js"></script>
+<script src="<?php echo Yii::app()->baseUrl; ?>/js/respond.min.js"></script>
+<![endif]-->
 </head>
 
 <body>

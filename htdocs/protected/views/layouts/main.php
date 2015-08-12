@@ -38,8 +38,8 @@ Yii::app()->clientScript->registerCoreScript('core');
 <title><?php echo CHtml::encode($this->pageTitle . ' - ' . $this->config['blog_name']); ?></title>
 
 <!--[if lt IE 9]>
-<script src="<?php echo Yii::app()->baseUrl; ?>/js/html5shiv.min.js"></script>
-<script src="<?php echo Yii::app()->baseUrl; ?>/js/respond.min.js"></script>
+<script type="text/javascript" src="<?php echo Yii::app()->baseUrl; ?>/js/html5shiv.min.js"></script>
+<script type="text/javascript" src="<?php echo Yii::app()->baseUrl; ?>/js/respond.min.js"></script>
 <![endif]-->
 </head>
 

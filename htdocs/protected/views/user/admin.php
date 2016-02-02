@@ -21,7 +21,7 @@ $this->pageTitle = Yii::t('app', 'Users');
 		'name',
 		'role',
 		array(
-			'class'=>'CButtonColumn',
+			'class'=>'CBSButtonColumn',
 		),
 	),
 )); ?>

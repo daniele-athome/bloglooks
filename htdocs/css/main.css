@@ -336,6 +336,10 @@ textarea.post-content {
     padding-right: 0;
 }
 
+ul.yiiPager a:link, ul.yiiPager a:visited {
+    padding: 5px 14px !important;
+}
+
 @media (max-width: 979px) {
   body {
     padding-top: 10px;

@@ -12,6 +12,7 @@ $this->pageTitle = Yii::t('app', 'Posts');
 	'dataProvider'=>$model->byLanguage(),
     'enableSorting' => false,
     'itemsCssClass' => 'table table-striped',
+	'pager' => array('header' => ''),
 	'columns'=>array(
 	    array(
 	        'name' => 'id',

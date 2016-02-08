@@ -1,8 +1,31 @@
-<?php $form=$this->beginWidget('CActiveForm', array(
+<?php
+Yii::app()->clientScript->registerCoreScript('typewatch');
+Yii::app()->clientScript->registerScript('autosave', <<<EOF
+
+EOF
+, CClientScript::POS_READY);
+
+$form=$this->beginWidget('CActiveForm', array(
 	'id'=>'post-form',
 	'enableAjaxValidation'=>false,
     'htmlOptions' => array('role' => 'form'),
-)); ?>
+));
+?>
+
+<script type="text/javascript">
+function autosave(value) {
+    // TODO
+    console.log(this);
+    console.log(value);
+}
+
+$('#post-form').find('textarea[name="content"]').typeWatch({
+    callback: function (value) { alert('TypeWatch callback: (' + this.type + ') ' + value); },
+    wait: <?php Yii::app()->params['autosaveDelay'] ?>,
+    highlight: true,
+    captureLength: 20
+});
+</script>
 
 <fieldset>
     <legend>

@@ -129,6 +129,11 @@ return array(
 	                'css' => array('css/pluspics.css'),
 	                'depends' => array('jquery'),
                 ),
+                'typewatch' => array(
+                    'baseUrl' => '',
+                    'js' => array('js/jquery.typewatch.js'),
+                    'depends' => array('jquery'),
+                )
 	        ),
 	    ),
 	),
@@ -151,5 +156,7 @@ return array(
             'publicKey' => 'PUBLIC-KEY',
             'privateKey' => 'PRIVATE-KEY',
 	    ),
+		// timeout in milliseconds after user stops typing
+		'autosaveDelay' => 3000,
 	),
 );

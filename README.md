@@ -15,6 +15,7 @@ Features
  * Multilanguage
  * Comments with approval by admin (no UI yet)
  * Privilege roles: user, editor, admin
+ * Draft autosave
  * Mail notifications
  * ATOM/RSS feeds
  * Google+ Photos integration

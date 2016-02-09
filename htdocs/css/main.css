@@ -217,11 +217,23 @@ div.form-comment > form.form-comment {
 }
 
 .small {
-  font-size: 85%;
+    font-size: 85%;
+}
+
+.header-small {
+    font-size: 60%;
+}
+
+.text-danger-emphasis {
+    color: red;
 }
 
 textarea.post-content {
     resize: vertical;
+}
+
+input.post-tags, input.post-title, textarea.post-content {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
 #attachments {

@@ -29,7 +29,7 @@ return array(
     'Manage pages' => 'Gestisci pagine',
     'Manage users' => 'Gestisci utenti',
     'Languages' => 'Lingue',
-    'Last edit:' => 'Ultima modifica:',
+    'Last modified:' => 'Ultima modifica:',
 
     'Available in:' => 'Disponibile in:',
     'by' => 'di',

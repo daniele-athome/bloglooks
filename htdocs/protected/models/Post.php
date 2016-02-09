@@ -13,6 +13,7 @@
  * @property string $modified
  * @property string $published
  * @property string $content
+ * @property string $draft
  * @property boolean $comments_enabled
  */
 class Post extends CActiveRecord
@@ -50,7 +51,7 @@ class Post extends CActiveRecord
 			array('tags, published', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, language, title, author_id, tags, created, modified, published, content', 'safe', 'on'=>'search'),
+			array('id, language, title, author_id, tags, created, modified, published, content, draft', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -86,6 +87,7 @@ class Post extends CActiveRecord
 			'modified' => 'Modified',
 			'published' => Yii::t('Post', 'Published'),
 			'content' => 'Content',
+			'draft' => 'Draft',
 		    'comments_enabled' => 'Comments enabled',
 		);
 	}
@@ -128,6 +130,7 @@ class Post extends CActiveRecord
 		$criteria->compare('modified',$this->modified,true);
 		$criteria->compare('published',$this->published,true);
 		$criteria->compare('content',$this->content,true);
+        $criteria->compare('draft',$this->draft,true);
 		$criteria->compare('comments_enabled',$this->comments_enabled,true);
 
 		return new CActiveDataProvider($this, array(
@@ -138,7 +141,7 @@ class Post extends CActiveRecord
 	public function byLanguage()
 	{
 	    $criteria=new CDbCriteria;
-	    $criteria->select = "t.id, ifnull(b.title, t.title) title, max(t.published) published, group_concat(t.language) language";
+	    $criteria->select = "t.id, ifnull(b.title, t.title) title, max(t.published) published, max(length(t.draft)) draft, group_concat(t.language) language";
 	    $criteria->join = "left outer join posts b on t.id = b.id and b.language = :language";
 	    $criteria->group = 't.id, ifnull(b.title, t.title)';
 	    $criteria->params = array(':language' => Controller::getLanguage());

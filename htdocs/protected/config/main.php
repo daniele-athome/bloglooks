@@ -133,7 +133,11 @@ return array(
                     'baseUrl' => '',
                     'js' => array('js/jquery.typewatch.js'),
                     'depends' => array('jquery'),
-                )
+                ),
+				'moment' => array(
+					'baseUrl' => '',
+					'js' => array('js/moment.min.js'),
+				),
 	        ),
 	    ),
 	),
@@ -157,6 +161,6 @@ return array(
             'privateKey' => 'PRIVATE-KEY',
 	    ),
 		// timeout in milliseconds after user stops typing
-		'autosaveDelay' => 3000,
+		'autosaveDelay' => 1000,
 	),
 );

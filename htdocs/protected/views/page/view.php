@@ -49,7 +49,7 @@ endif;
 <?php echo CHtml::link(Yii::t('app', 'Delete'), array('page/delete', 'name' => $model->name, 'language' => $model->language), array(
     'submit'=> array('page/delete', 'name' => $model->name, 'language' => $model->language),
     'confirm' => Yii::t('Page', 'Delete {lang} version of this page?', array('{lang}' => $model->language)))); ?>&nbsp;|
-<?php echo Yii::t('app', 'Last edit:'); ?> <?php echo $model->modified; ?>
+<?php echo Yii::t('app', 'Last modified:'); ?> <?php echo $model->modified; ?>
 <?php endif; ?>
 
 </small>

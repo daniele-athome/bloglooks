@@ -32,7 +32,7 @@ class PostController extends Controller
                 'users'=>array('*'),
             ),
             array('allow',
-                'actions'=>array('new','edit', 'admin','delete'),
+                'actions'=>array('new','edit', 'admin','delete', 'draft'),
                 'roles' => array('admin', 'editor'),
             ),
             array('deny',
@@ -226,6 +226,7 @@ class PostController extends Controller
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id id of the post
      * @param string $language language of the post
+     * @param bool $draft true to save as draft
      */
     public function actionEdit($id, $language)
     {
@@ -240,6 +241,7 @@ class PostController extends Controller
             $published = $model->published;
 
             $model->attributes=$_POST['Post'];
+            $model->draft = null;
 
             if ($model->published) {
                 if (!$published)
@@ -253,9 +255,35 @@ class PostController extends Controller
                 $this->redirect(array('view','id'=>$model->id,'language'=>$model->language));
         }
 
+        // use draft if available
+        if ($model->draft)
+            $model->content = $model->draft;
+
         $this->render('edit',array(
             'model'=>$model,
         ));
+    }
+
+    public function actionDraft($id, $language)
+    {
+        $model=$this->loadModel($id, $language);
+
+        if (isset($_POST['Post'])) {
+            // store content into draft
+            $model->attributes = $_POST['Post'];
+            $model->draft = $model->content;
+            // save draft only
+            if ($model->save(true, array('draft'))) {
+                $this->renderJSON(array());
+                // execution ends here
+            }
+        }
+        else {
+            // delete draft
+            $model->draft = null;
+            $model->save(true, array('draft'));
+            $this->redirect(array('view','id'=>$model->id,'language'=>$model->language));
+        }
     }
 
     /**

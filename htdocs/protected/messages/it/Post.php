@@ -44,4 +44,10 @@ return array(
     '<strong>Grazie!</strong> Il commento sar&agrave; pubblicato dopo l\'approvazione.',
 
     'Share this post' => 'Condividi questo post',
+
+    'Saving...' => 'Salvataggio...',
+    'Draft saved at %s' => 'Bozza salvata alle %s',
+    'Error saving draft.' => 'Errore salvataggio bozza.',
+    'Discard draft' => 'Elimina bozza',
+    'Discard draft?' => 'Eliminare la bozza?',
 );

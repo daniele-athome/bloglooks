@@ -127,6 +127,6 @@ EOF
             'confirm' => Yii::t('Post', 'Delete {lang} version of this post?', array('{lang}' => $data->language)))); ?>&nbsp;|
         <?php endif; ?>
 
-		<?php echo Yii::t('app', 'Last edit:'); ?> <?php echo $data->modified; ?>
+		<?php echo Yii::t('app', 'Last modified:'); ?> <?php echo $data->modified; ?>
 	</small>
 </div>

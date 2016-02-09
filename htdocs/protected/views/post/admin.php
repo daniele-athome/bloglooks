@@ -1,4 +1,7 @@
 <?php
+/** @var Post $model */
+/** @var PostController $this */
+
 $this->pageTitle = Yii::t('app', 'Posts');
 ?>
 <legend><?php echo Yii::t('app', 'Posts'); ?>&nbsp;<?php
@@ -21,6 +24,8 @@ $this->pageTitle = Yii::t('app', 'Posts');
 	    array(
 	        'name' => 'title',
 	        'htmlOptions'=>array('style'=>'width: 60%'),
+            'type' => 'raw',
+            'value' => 'CHtml::encode($data->title).($data->draft ?  " <span class=\"text-danger-emphasis\">Draft</span>" : "")'
 	    ),
 	    array(
 	        'name' => 'published',

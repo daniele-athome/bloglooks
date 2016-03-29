@@ -116,7 +116,7 @@ return array(
 	            ),
 	            'jquery' => array(
 	                'baseUrl' => '',
-	                'js' => array('js/jquery-1.11.3.min.js', 'js/jquery.easing-1.3.js'),
+	                'js' => array('js/jquery.min.js', 'js/jquery.easing.js'),
 	            ),
 	            'bootstrap' => array(
 	                'baseUrl' => '',

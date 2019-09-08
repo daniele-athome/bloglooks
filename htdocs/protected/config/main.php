@@ -111,7 +111,7 @@ return array(
 	            // register this for everything needed to the app
 	            'core' => array(
 	                'baseUrl' => '',
-	                'css' => array('css/main.css'),
+	                'css' => array('css/main.css', 'css/blog.css'),
 	                'depends' => array('jquery', 'bootstrap'),
 	            ),
 	            'jquery' => array(

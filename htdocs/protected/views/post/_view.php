@@ -9,20 +9,18 @@ else {
     $stamp = $data->modified;
 }
 ?>
-<div class="post">
-    <div class="page-title">
-    <h2>
+<div class="blog-post">
+    <h2 class="blog-post-title">
     <?php if (!isset($standalone)): ?>
     <?php echo CHtml::link(CHtml::encode($data->title), $data->url); ?>
     <?php else: ?>
     <?php echo CHtml::encode($data->title); ?>
     <?php endif; ?>
     </h2>
-    </div>
 
-    <small class="text-muted">
+    <p class="blog-post-meta">
     <?php echo $status; ?> <?php echo $stamp; ?> <?php echo Yii::t('app', 'by'); ?> <?php echo CHtml::link($data->author->name, array('post/index', 'author' => $data->author->id)); ?>
-    </small>
+    </p>
 
     <div class="page-content">
     <?php

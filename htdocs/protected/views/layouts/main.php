@@ -45,10 +45,8 @@ Yii::app()->clientScript->registerCoreScript('core');
 
 <body>
 
-<div class="container-narrow container">
-
-   <header class="container-inner row" id="header">
-        <div class="masthead">
+   <header class="blog-masthead" id="header">
+        <div class="container">
         <?php
         $items = array(array('label'=>Yii::t('app', 'Home'), 'url'=>array('post/index')));
         $page = $this->get_page_info($this->config['header_pagelink']);
@@ -58,26 +56,26 @@ Yii::app()->clientScript->registerCoreScript('core');
         $items[] = array('label'=>Yii::t('app', 'Login'), 'url'=>array('site/login'), 'visible'=>Yii::app()->user->isGuest);
         $items[] = array('label'=>Yii::t('Post', 'New post'), 'url'=>array('post/new'), 'visible'=>(Yii::app()->user->checkAccess('editor') || Yii::app()->user->checkAccess('admin')));
         $items[] = array('label'=>Yii::t('app', 'Logout'), 'url'=>array('site/logout'), 'visible'=>!Yii::app()->user->isGuest);
-        $this->widget('zii.widgets.CMenu', array(
-            'htmlOptions' => array('class' => 'nav nav-pills pull-right'),
+        $this->widget('application.components.CLinkNav', array(
+            'htmlOptions' => array('class' => 'blog-nav'),
+            'itemCssClass' => 'blog-nav-item',
             'items'=>$items,
         ));
         ?>
-
-        <h3 id="blogname"><?php echo CHtml::link(CHtml::encode($this->config['blog_name']), array('post/index'), array('encode' => true)); ?></h3>
-        <h6 id="blogdesc" class="text-muted"><?php echo CHtml::encode($this->config['blog_description']); ?></h6>
         </div>
     </header>
 
-    <div id="content">
-
-    <!-- TODO breadcrumbs -->
+    <div class="container" id="content">
+        <div class="blog-header">
+            <h1 class="blog-title"><?php echo $this->config['blog_name']; ?></h1>
+            <p class="lead blog-description"><?php echo $this->config['blog_description']; ?></p>
+        </div>
 
     <?php echo $content; ?>
 
     </div>
 
-    <footer class="footer page-footer row">
+    <footer class="blog-footer" id="footer">
         <div class="container-fluid text-center text-muted credit">
         Powered by <a target="_blank" href="<?php echo Yii::app()->params['poweredByUrl']; ?>"><?php echo Yii::app()->name; ?></a> |
         Copyright &copy; <?php echo Yii::app()->params['copyrightHolder']; ?><br/>
@@ -97,8 +95,6 @@ Yii::app()->clientScript->registerCoreScript('core');
         <small><?php echo Yii::t('app', 'Page generated in {seconds} seconds', array('{seconds}' => round(Yii::getLogger()->getExecutionTime(), 3))); ?></small>
         </div>
     </footer>
-
-</div>
 
 </body>
 </html>

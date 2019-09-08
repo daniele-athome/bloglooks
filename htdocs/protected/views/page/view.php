@@ -13,13 +13,13 @@ else {
 
 ?>
 
-<div class="page-title">
-<h2><?php echo CHtml::encode($model->title); ?></h2>
-</div>
+<div class="blog-post">
 
-<small class="muted">
+<h2 class="blog-post-title"><?php echo CHtml::encode($model->title); ?></h2>
+
+<p class="blog-post-meta">
 <?php echo $status; ?> <?php echo $stamp; ?> <?php echo Yii::t('app', 'by'); ?> <?php echo CHtml::link($model->author->name, array('post/index', 'author' => $model->author->id)); ?>
-</small>
+</p>
 
 <div class="page-content">
 <?php
@@ -43,7 +43,7 @@ endif;
 </small>
 
 
-<small class="nav muted post-footer">
+<small class="nav muted post-footer blog-post-meta">
 <?php if (Yii::app()->user->checkAccess('editor') || Yii::app()->user->checkAccess('admin')): ?>
 <?php echo CHtml::link(Yii::t('app', 'Edit'), array('page/edit', 'name' => $model->name, 'language' => $model->language)); ?>&nbsp;|
 <?php echo CHtml::link(Yii::t('app', 'Delete'), array('page/delete', 'name' => $model->name, 'language' => $model->language), array(
@@ -53,3 +53,5 @@ endif;
 <?php endif; ?>
 
 </small>
+
+</div>

@@ -39,7 +39,7 @@ EOF
 
 <?php $this->renderPartial('_view', array('data' => $model, 'standalone' => true)); ?>
 
-<div class="page-title">
+<div class="page-title share-title">
     <span class="text-muted"><?php echo Yii::t('Post', 'Share this post'); ?></span>
 </div>
 

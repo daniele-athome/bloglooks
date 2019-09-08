@@ -15,6 +15,7 @@ $this->pageTitle = Yii::t('app', 'Posts');
 	'dataProvider'=>$model->byLanguage(),
     'enableSorting' => false,
     'itemsCssClass' => 'table table-striped',
+	'pagerCssClass' => 'pager pagination-centered',
 	'pager' => array('header' => ''),
 	'columns'=>array(
 	    array(
